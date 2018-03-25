@@ -37,3 +37,9 @@ stride_x:       2
 kernel_w:       3
 pad_x:          1
 ```
+
+### Discussion regarding caffe maxpool pecularity
+
+* [Dlib issue #803](https://github.com/davisking/dlib/issues/803) contains some discussion regarding caffe maxpool peculiarities and potential workaround (crop layer + tuning)
+* The core caffe issue is summarized in beautifully diagrammed detail in this post http://netaz.blogspot.com/2016/08/confused-about-caffes-pooling-layer.html 
+* An approved (but no yet merged (as of Sun Mar 25 11:15:50 EDT 2018)) PR that should support more consistent `floor()` based sizes is sitting in the caffe repo here https://github.com/BVLC/caffe/pull/3057 
