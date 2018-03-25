@@ -10,9 +10,25 @@ HunterGate(
 
 project(hunter_dlib_ncnn VERSION 1.0.0 LANGUAGES C CXX)
 
+### https://github.com/davisking/dlib/blob/master/examples/dnn_metric_learning_on_images_ex.cpp
+## LICENSE: public domain. See dlib's LICENSE_FOR_EXAMPLE_PROGRAMS.txt
+
 hunter_add_package(dlib)
 find_package(dlib CONFIG REQUIRED)
 
 add_executable(dnn_metric_learning_on_images_ex dnn_metric_learning_on_images_ex.cpp)
 target_link_libraries(dnn_metric_learning_on_images_ex PUBLIC dlib::dlib)
 install(TARGETS dnn_metric_learning_on_images_ex DESTINATION bin)
+
+### https://github.com/Tencent/ncnn/blob/master/examples/squeezenet.cpp
+## LICENSE: https://opensource.org/licenses/BSD-3-Clause
+
+hunter_add_package(ncnn)
+find_package(ncnn CONFIG REQUIRED)
+
+hunter_add_package(OpenCV)
+find_package(OpenCV REQUIRED)
+
+add_executable(squeezenet squeezenet.cpp)
+target_link_libraries(squeezenet PUBLIC ncnn::ncnn ${OpenCV_LIBS})
+install(TARGETS squeezenet DESTINATION bin)

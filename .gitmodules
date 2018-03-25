@@ -1,0 +1,3 @@
+[submodule "src/3rdparty/ncnn"]
+	path = src/3rdparty/ncnn
+	url = https://github.com/headupinclouds/ncnn.git

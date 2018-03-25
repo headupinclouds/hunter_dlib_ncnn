@@ -17,3 +17,9 @@ set(dlib_cmake_args
 
 hunter_config(dlib VERSION ${HUNTER_dlib_VERSION} CMAKE_ARGS ${dlib_cmake_args})
 
+set(ncnn_cmake_args
+  NCNN_LOCAL_TOOLCHAIN=OFF
+  NCNN_BUILD_TOOLS=ON
+)
+
+hunter_config(ncnn GIT_SUBMODULE "src/3rdparty/ncnn" CMAKE_ARGS ${ncnn_cmake_args})
