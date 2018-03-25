@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
+option(HUNTER_KEEP_PACKAGE_SOURCES "Keep" ON)
+
 include("cmake/HunterGate.cmake")
 
 HunterGate(
@@ -19,6 +21,12 @@ find_package(dlib CONFIG REQUIRED)
 add_executable(dnn_metric_learning_on_images_ex dnn_metric_learning_on_images_ex.cpp)
 target_link_libraries(dnn_metric_learning_on_images_ex PUBLIC dlib::dlib)
 install(TARGETS dnn_metric_learning_on_images_ex DESTINATION bin)
+
+### https://github.com/davisking/dlib/blob/master/tools/convert_dlib_nets_to_caffe/main.cpp
+
+add_executable(convert_dlib_nets_to_caffe convert_dlib_nets_to_caffe.cpp)
+target_link_libraries(convert_dlib_nets_to_caffe PUBLIC dlib::dlib)
+install(TARGETS convert_dlib_nets_to_caffe DESTINATION bin)
 
 ### https://github.com/Tencent/ncnn/blob/master/examples/squeezenet.cpp
 ## LICENSE: https://opensource.org/licenses/BSD-3-Clause
