@@ -23,3 +23,11 @@ set(ncnn_cmake_args
 )
 
 hunter_config(ncnn GIT_SUBMODULE "src/3rdparty/ncnn" CMAKE_ARGS ${ncnn_cmake_args})
+
+set(opencv_cmake_args
+  BUILD_opencv_dnn=OFF
+  BUILD_PROTOBUF=OFF
+  BUILD_LIBPROTOBUF_FROM_SOURCES=NO # skip this on android
+  )
+
+hunter_config(OpenCV VERSION ${HUNTER_OpenCV_VERSION} CMAKE_ARGS ${opencv_cmake_args})
