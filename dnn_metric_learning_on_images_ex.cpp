@@ -301,6 +301,9 @@ int main(int argc, char** argv)
     // testing, which is what we do here.
     anet_type testing_net = net;
 
+    // [MOD] Write xml output for test network (no batch norm, etc) for conversion to caffe, etc
+    dlib::net_to_xml(testing_net, "metric_network_renset.xml");
+        
     // Run all the images through the network to get their vector embeddings.
     std::vector<matrix<float,0,1>> embedded = testing_net(images);
 
